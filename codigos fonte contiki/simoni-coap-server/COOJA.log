@@ -1,0 +1,12 @@
+[19:33:28 - main] [GUI.java:1325] [INFO] - > Starting Cooja
+[19:33:28 - main] [GUI.java:2846] [INFO] - External tools default settings: /external_tools_linux.config
+[19:33:28 - main] [GUI.java:2876] [INFO] - External tools user settings: /home/user/.cooja.user.properties
+[19:33:30 - main] [Simulation.java:423] [INFO] - Simulation random seed: 123456
+[19:33:30 - main] [CompileContiki.java:140] [INFO] - > make border-router.sky TARGET=sky 
+[19:33:31 - main] [CompileContiki.java:140] [INFO] - > make er-example-server.sky TARGET=sky 
+[19:33:32 - main] [MspMote.java:232] [INFO] - Loading firmware from: /home/user/contiki/examples/ipv6/rpl-border-router/border-router.sky
+[19:33:32 - main] [MspMote.java:232] [INFO] - Loading firmware from: /home/user/contiki/examples/er-rest-example/er-example-server.sky
+[19:33:32 - main] [SerialSocketServer.java:124] [INFO] - Listening on port: 60001
+[19:33:32 - main] [TimeLine.java:567] [INFO] - Zoom level: 25.49079397896416 microseconds/pixel 
+[19:33:45 - Thread-1] [Simulation.java:252] [INFO] - Simulation main loop started, system time: 1476898425866
+[19:34:10 - Thread-2] [SerialSocketServer.java:182] [INFO] - Forwarder: socket -> serial port

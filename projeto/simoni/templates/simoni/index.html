@@ -1,0 +1,62 @@
+{% load static %}
+<html>
+	<head>
+		<title> Hello! </title>
+
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+		<link rel="stylesheet" href="{% static 'css/jquery.jqplot.css' %}">
+
+		<script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+		<script src="{% static 'js/jquery-ui.min.js' %}"></script>
+		<script src="{% static 'js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'js/jquery.jqplot.js' %}"></script>
+		<script src="{% static 'js/plugins/jqplot.canvasTextRenderer.js' %}"></script>
+		<script src="{% static 'js/plugins/jqplot.canvasAxisLabelRenderer.js' %}"></script>
+		<script src="{% static 'js/plugins/jqplot.canvasAxisTickRenderer.js' %}"></script>
+		<script src="{% static 'js/plugins/jqplot.dateAxisRenderer.js' %}"></script>
+		<script src="{% static 'js/index.js' %}"></script>
+
+  <script>
+  $( function() {
+    $( "input[name=datepicker]" ).datepicker({ dateFormat: 'dd/mm/yy' });
+  } );
+  </script>
+	</head>
+	<body class="container">
+		<div class="row" id="painel">
+			<span> Lista dos sensores disponíveis </span>
+			<select id="listaSensores" multiple onchange="obterRecursos();"></select>
+			<span> Tempo entre as medidas (em segundos) </span>
+			<input type="text" id="tempo" value="5"/>
+			<span> Recursos </span>
+			<select id="recurso" onchange="limparGrafico('graficoTempoReal')"><select>
+			<input type="button" id="start" onclick="iniciarLeituraContinuada()" value="Iniciar leitura" />
+			<input type="button" id="stop" onclick="interromperLeituraContinuada()" value="Interromper leitura" style="display: none" />
+		</div><br>
+		<div id="graficoTempoReal"></div>
+		<div class="row">
+			<input type="button" id="clear" onclick="limparGrafico('graficoTempoReal')" value="Limpar Gráfico" />
+			<input type="button" id="clear" onclick="salvarDadosObtidos()" value="Salvar Dados Obtidos" />
+		</div><br>
+
+		<div class="row">
+			De: <input type="text" id="de" name="datepicker">
+			Até: <input type="text" id="ate" name="datepicker">
+			<select id="recursoHistorico">
+				<option value="light">light</option>
+				<option value="temperature">temperature</option>
+				<option value="humidity">humidity</option>
+				<option value="noise">noise</option>
+			</select>
+			<input type="button" id="pesquisar" onclick="obterHistorico()" value="Pesquisar" />
+		</div><br>
+
+		<div class="row">
+			<span> Lista dos experimentos encontrados </span>
+			<select id="listaExperimentosEncontrados" onchange="exibirGraficoHistorico()"></select>
+		</div><br>
+		<div id="pesquisaHistorico"></div>
+	</body>
+</html>
